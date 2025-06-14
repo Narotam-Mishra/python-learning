@@ -61,3 +61,27 @@ hello.py → bytecode → PVM → actual execution
 - System Administration
 - Calculator/Tool
 
+## 04 Immutable and mutable in python (01:06:40)
+
+# Immutable and Mutable are something that is related to memory reference in python
+
+# Mutable Objects - Can be changed after creation:
+
+a). Lists: [1, 2, 3] - can add, remove, or modify elements
+b). Dictionaries: {'a': 1} - can add, update, or delete key-value pairs
+c). Sets: {1, 2, 3} - can add or remove elements
+d). User-defined objects - attributes can be modified
+
+# Immutable Objects - Cannot be changed after creation:
+
+a). Strings: "hello" - operations create new strings
+b). Tuples: (1, 2, 3) - cannot modify elements
+c). Numbers: 42, 3.14 - operations create new values
+d). Frozen sets: frozenset({1, 2}) - immutable version of sets
+e). Booleans: True, False
+
+# Why it matters: Affects how objects behave when passed to functions, assigned to variables, or used as dictionary keys (only immutable objects can be dict keys).
+
+# Mutable objects can have side effects (modify original data)
+# Immutable objects are safer - no unexpected changes
+# Use immutable objects when you want to prevent accidental modifications
