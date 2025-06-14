@@ -52,3 +52,12 @@ hello.py → bytecode → PVM → actual execution
 
 # How Python Works Internally (Detailed) - https://claude.ai/share/8b16fe6e-2be1-47c7-8b3b-7344745b286f
 
+## 03 Python in shell (00:46:36)
+
+# Python shell is useful for :-
+- Interactive Development
+- Data Exploration
+- Learning & Prototyping
+- System Administration
+- Calculator/Tool
+
