@@ -150,4 +150,183 @@ e). Booleans: True, False
 - Mutable objects can lead to unexpected side effects if shared.
 - Use copy() or slicing to avoid accidental reference sharing.
 
-## 
+## 07 Numbers in depth in python (02:24:54)
+
+### **1. Python Numbers & Operations**
+- **Types**: Integers (`int`), floats (`float`), and complex numbers.
+- **Basic Math Operations**:  
+  - `+` (addition), `-` (subtraction), `*` (multiplication), `/` (division), `**` (exponentiation), `%` (modulus/remainder).
+  - Example: `2 ** 3` (8), `5 % 2` (1).
+- **Precedence**: Use parentheses `()` to clarify order (e.g., `(x + y) * z`).
+
+### **2. Type Handling & Precision**
+- **Mixed Types**: Python auto-converts to higher precision (e.g., `int + float → float`).  
+  - Avoid mixing types; explicitly convert:  
+    ```python
+    int(2.3)  # 2
+    float(40) # 40.0
+    ```
+- **Large Numbers**: Python handles arbitrarily large integers (e.g., `2 ** 1000`).
+
+### **3. Comparisons & Boolean Logic**
+- **Operators**:  
+  - `==` (equal), `!=` (not equal), `<` (less than), `>` (greater than), `<=`, `>=`.
+  - **Chained Comparisons**:  
+    ```python
+    x < y < z  # Equivalent to (x < y) and (y < z)
+    ```
+- **Boolean Values**:  
+  - `True` (1) and `False` (0) are treated as integers internally.  
+  - Logical operators: `and` (both conditions), `or` (either condition).
+
+### **4. Common Pitfalls**
+- **Floating-Point Precision**:  
+  ```python
+  1 / 3  # 0.333... (use `round()` or format for display).
+  ```
+- **Operator Overloading**:  
+  - `+` works for numbers (addition) and strings (concatenation).
+- **Avoid Implicit Type Mixing**:  
+  - Bad: `40 + 2.23` → Prefer explicit conversion (e.g., `float(40) + 2.23`).
+
+### **5. Shortcuts & Best Practices**
+- **Chained Assignments**:  
+  ```python
+  a = b = 10  # Both `a` and `b` reference the same `10`.
+  ```
+- **Copying Lists**:  
+  ```python
+  list2 = list1[:]  # Shallow copy (avoids shared references).
+  ```
+- **Readability**: Use parentheses for complex expressions to avoid ambiguity.
+
+### **Python Numbers & Advanced Concepts Summary**
+
+#### **1. Math Module & Number Operations**
+- **`math` Library**:  
+  - `math.floor(x)`: Rounds down to the nearest integer (e.g., `math.floor(3.5) → 3`, `math.floor(-3.5) → -4`).  
+  - `math.trunc(x)`: Truncates toward zero (e.g., `math.trunc(2.8) → 2`, `math.trunc(-2.8) → -2`).  
+  - Other functions: `sqrt()`, `pow()`, `ceil()`, etc.
+
+#### **2. Precision Handling**
+- **Large Numbers**: Python handles arbitrarily large integers (e.g., `999999999999999999 + 1` works perfectly).  
+- **Floating-Point Precision**:  
+  ```python
+  1 / 3  # 0.3333333333333333 (use `round()` or `decimal` module for exact precision).
+  ```
+
+#### **3. Complex Numbers**
+- Represented as `a + bj` (e.g., `2 + 1j`).  
+- Operations:  
+  ```python
+  (2 + 1j) * 3  # (6 + 3j)
+  ```
+
+#### **4. Number Systems & Conversions**
+- **Binary**: Prefix `0b` (e.g., `0b1010` → `10`).  
+- **Octal**: Prefix `0o` (e.g., `0o20` → `16`).  
+- **Hexadecimal**: Prefix `0x` (e.g., `0xFF` → `255`).  
+- **Conversions**:  
+  ```python
+  bin(64)  # '0b1000000'
+  oct(64)  # '0o100'
+  hex(64)  # '0x40'
+  int('64', 8)  # Convert from base-8 → 52
+  ```
+
+#### **5. Bitwise Operations**
+- **Left Shift (`<<`)**: `x << n` (equivalent to `x * (2 ** n)`).  
+  ```python
+  1 << 2  # 4 (binary: 0100)
+  ```
+- **Right Shift (`>>`)**: `x >> n` (equivalent to `x // (2 ** n)`).  
+- **Bitwise AND/OR/XOR**:  
+  ```python
+  5 & 3  # AND → 1
+  5 | 3  # OR → 7
+  ```
+
+### **1. Random Module**
+- **`random.random()`**: Generates a float between 0.0 and 1.0.  
+- **`random.randint(a, b)`**: Returns a random integer between `a` and `b` (inclusive).  
+  ```python
+  random.randint(1, 100)  # Random number between 1-100
+  ```
+- **`random.choice(seq)`**: Picks a random element from a sequence (list, tuple, etc.).  
+  ```python
+  random.choice(["tea", "coffee", "milk"])  # Random item
+  ```
+- **`random.shuffle(seq)`**: Shuffles a sequence in-place.  
+  ```python
+  cards = ["Spade", "Heart", "Diamond"]  
+  random.shuffle(cards)  # Shuffles the list
+  ```
+
+### **2. Decimal Precision**
+- **Issue**: Floating-point arithmetic can be imprecise.  
+  ```python
+  0.1 + 0.1 + 0.1 - 0.3  # Returns 5.551115123125783e-17 (not 0.0)
+  ```
+- **Solution**: Use the `decimal` module for exact precision.  
+  ```python
+  from decimal import Decimal
+  Decimal('0.1') + Decimal('0.1') + Decimal('0.1') - Decimal('0.3')  # Returns 0.0
+  ```
+
+### **3. Fractions**
+- **`fractions.Fraction`**: Handles fractional arithmetic.  
+  ```python
+  from fractions import Fraction
+  Fraction(2, 7)  # Represents 2/7
+  ```
+
+### **4. Sets**
+- **Definition**: Unordered, unique elements.  
+  ```python
+  set1 = {1, 2, 3, 4}
+  set2 = {1, 3}
+  ```
+- **Operations**:  
+  - **Union (`|`)**: `set1 | set2` → `{1, 2, 3, 4}`  
+  - **Intersection (`&`)**: `set1 & set2` → `{1, 3}`  
+  - **Difference (`-`)**: `set1 - set2` → `{2, 4}`  
+- **Empty Set**: Use `set()` (not `{}`, which is a dict).  
+
+### **5. Booleans**
+- **Values**: `True` (1) and `False` (0).  
+- **Truthy/Falsy**:  
+  ```python
+  bool(1)  # True
+  bool(0)  # False
+  ```
+- **Comparison**:  
+  ```python
+  True == 1  # True
+  False == 0  # True
+  True is 1  # False (different objects)
+  ```
+
+### **Key Takeaways**
+- Python dynamically handles types but **explicit is better than implicit**.
+- **Comparisons** return `True`/`False` (treated as `1`/`0`).
+- **Precision matters**: Use `round()`, `int()`, or `float()` as needed.
+- **Best Practice**: Write clear, readable code (e.g., avoid `x < y < z` in favor of explicit `and`).
+
+#### **Key Takeaways**
+- **Precision**: Use `math` or `decimal` modules for exact calculations.  
+- **Number Systems**: Python supports binary, octal, and hexadecimal natively.  
+- **Complex Numbers**: Handled via `a + bj` notation.  
+- **Bitwise Ops**: Useful for low-level optimizations (rare in everyday code).  
+
+### **When to Use What?**
+- **General Math**: Built-in operators (`+`, `-`, `**`).  
+- **Precision**: `decimal` module.  
+- **Advanced Math**: `math` or `numpy`.  
+- **Bit Manipulation**: Bitwise operators (`<<`, `>>`, `&`, `|`). 
+
+### **Key Takeaways**
+- **Random**: Use `random` for games, simulations, and shuffling.  
+- **Precision**: For financial/math-critical apps, use `decimal`.  
+- **Fractions**: Useful for exact fractional representations.  
+- **Sets**: Ideal for uniqueness checks and set operations.  
+- **Booleans**: Internally treated as `1`/`0` but are distinct objects.  
