@@ -330,3 +330,77 @@ e). Booleans: True, False
 - **Fractions**: Useful for exact fractional representations.  
 - **Sets**: Ideal for uniqueness checks and set operations.  
 - **Booleans**: Internally treated as `1`/`0` but are distinct objects.  
+
+## 08 Strings in python (03:12:43)
+
+### **Summary of Python String Concepts**
+
+#### **1. String Basics**
+- **Quotes**: Strings can be defined using single (`' '`), double (`" "`), or triple quotes (`''' '''` or `""" """`).  
+- **Triple Quotes**: Preserve formatting (line breaks, tabs).  
+- **Immutability**: Strings are immutable (cannot be changed after creation).  
+
+#### **2. String Slicing & Indexing**
+- **Syntax**: `string[start:end:step]` (end is **exclusive**).  
+- **Negative Indexing**: `-1` refers to the last character.  
+- **Step Parameter**: Skips characters (e.g., `"123456789"[0:9:2]` → `"13579"`).  
+
+#### **3. Common String Methods**
+- **`lower()` / `upper()`**: Convert case.  
+- **`strip()`**: Removes leading/trailing whitespace.  
+- **`replace(old, new)`**: Replaces a substring.  
+- **`split(delimiter)`**: Splits into a list (e.g., `"a,b,c".split(",")` → `["a", "b", "c"]`).  
+- **`find(substring)`**: Returns the starting index of a substring (or `-1` if not found).  
+- **`count(substring)`**: Counts occurrences (e.g., `"chai chai".count("chai")` → `2`).  
+- **`len(string)`**: Returns length.  
+
+#### **4. String Formatting**
+- **`format()`**: Inserts variables into placeholders (`{}`).  
+  ```python
+  order = "I ordered {} cups of {}"
+  print(order.format(2, "masala chai"))  # "I ordered 2 cups of masala chai"
+  ```
+- **f-Strings (Python 3.6+)**:  
+  ```python
+  quantity = 2
+  print(f"I ordered {quantity} cups of chai")
+  ```
+
+#### **5. String Joining & Splitting**
+- **`join()`**: Converts a list to a string with a separator.  
+  ```python
+  varieties = ["lemon", "ginger", "mint"]
+  print(", ".join(varieties))  # "lemon, ginger, mint"
+  ```
+- **`split()`**: Splits a string into a list.  
+
+#### **6. Escape Characters & Raw Strings**
+- **Escape (`\`)**: Treats special characters literally (e.g., `\"` for quotes inside strings).  
+- **Raw Strings (`r`)**: Ignores escape sequences (useful for file paths).  
+  ```python
+  path = r"C:\Users\Name\Folder"  # No need to escape backslashes
+  ```
+
+#### **7. Membership Check**
+- **`in` Keyword**: Checks if a substring exists.  
+  ```python
+  print("masala" in "masala chai")  # True
+  ```
+
+#### **8. Looping Through Strings**
+```python
+for char in "chai":
+    print(char)  # Prints each character vertically
+```
+
+#### **9. Practical Use Cases**
+- Handling file paths (raw strings).  
+- Formatting user inputs (e.g., `format()`, f-strings).  
+- Cleaning data (`strip()`, `replace()`).  
+
+### **Key Takeaways**
+- Strings are **immutable** (methods return new strings).  
+- Slicing is **powerful** (`[start:end:step]`).  
+- **`join()`** and **`split()`** are essential for list-string conversions.  
+- **f-Strings** are the **modern** way to format strings.  
+
