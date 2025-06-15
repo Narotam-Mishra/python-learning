@@ -404,3 +404,4 @@ for char in "chai":
 - **`join()`** and **`split()`** are essential for list-string conversions.  
 - **f-Strings** are the **modern** way to format strings.  
 
+## 09 List in python (03:43:25)
