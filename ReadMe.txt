@@ -52,6 +52,9 @@ hello.py → bytecode → PVM → actual execution
 
 # How Python Works Internally (Detailed) - https://claude.ai/share/8b16fe6e-2be1-47c7-8b3b-7344745b286f
 
+# # Python Execution model - https://claude.ai/share/dc253a1c-048b-48fb-9b67-4eb7a89cc260
+
+
 ## 03 Python in shell (00:46:36)
 
 # Python shell is useful for :-
@@ -85,3 +88,66 @@ e). Booleans: True, False
 # Mutable objects can have side effects (modify original data)
 # Immutable objects are safer - no unexpected changes
 # Use immutable objects when you want to prevent accidental modifications
+
+## 05 Python Data Types - Big Picture (01:23:48)
+
+# Data Types / Object Types
+
+- Number : 1234, 3.14, 3+4j, 0b111, Decimal(), Fraction()
+- String : 'spam', "Bob's", b'a\x01c, u'sp\xc4m'
+- List : [1, [2, 'three'], 4.5], list(range(10))
+- Tuple : (1, 'spam', 4, 'U'), tuple('spam'), namedtuple
+- Dictionary : {'food': 'spam', 'taste': 'yum'}, dict(hours=10)
+
+- Set : set('abc'), {'a', 'b', 'c'}
+
+- File : open('demos.txt'), open(r'C:\ham.bin', 'wb')
+
+- Boolean : True, False
+- None: None
+- Functions, modules, classes
+
+- Advance: Decorators, Generators, Iterators, MetaProgramming
+
+## 06 Internal working of python (01:54:35)
+
+# Python Internals & Memory Management
+
+- Python uses dynamic typing—variables don’t have types, but the objects they reference do.
+
+- Objects (like numbers, strings, lists) live in memory, and variables are just references (pointers) to them.
+
+- Reference Counting: Python tracks how many references an object has. When references drop to zero, the garbage collector reclaims memory.
+
+- Optimization: Python caches small integers and strings for efficiency (e.g., 5 or "hello" may reuse the same memory).
+
+# Mutable vs Immutable Objects
+- Immutable (can’t change after creation): int, float, str, tuple
+  - Changing them creates a new object.
+
+# Mutable (can change in-place): list, dict, set
+- Modifying them affects all references.
+
+#. Variable Assignment & References
+- Assigning a variable (a = b) creates a reference, not a copy.
+
+# To copy a list, use slicing (b = a[:]) or copy.copy().
+
+#. `is` vs `==`
+- `==` checks value equality.
+- `is` checks memory identity (same object):
+
+# Garbage Collection
+- Python’s GC cleans up objects with zero references.
+- Exception: Small integers/strings may linger for reuse.
+
+# Behind-the-Scenes Optimization
+- Python pre-allocates small integers (-5 to 256) for speed.
+- Interning: Reuses immutable objects (like short strings) to save memory.
+
+# Key Takeaways :-
+- Variables are labels, not boxes. Objects live independently in memory.
+- Mutable objects can lead to unexpected side effects if shared.
+- Use copy() or slicing to avoid accidental reference sharing.
+
+## 
