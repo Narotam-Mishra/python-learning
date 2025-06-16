@@ -405,3 +405,145 @@ for char in "chai":
 - **f-Strings** are the **modern** way to format strings.  
 
 ## 09 List in python (03:43:25)
+
+### Lists in Python
+
+**Basic List Operations:**
+- Creation: `my_list = [1, 2, 3]` or `my_list = list()`
+- Indexing: `my_list[0]` (first element), `my_list[-1]` (last element)
+- Slicing: `my_list[1:3]` (elements from index 1 to 2)
+- Methods: `append()`, `extend()`, `insert()`, `remove()`, `pop()`, `sort()`
+
+**Key Properties:**
+- Ordered, mutable, allow duplicates
+- Can store mixed data types: `[1, "hello", 3.14, True]`
+
+## List Comprehensions
+
+**Basic Syntax:**
+```python
+[expression for item in iterable]
+```
+
+**Examples:**
+```python
+# Basic comprehension
+squares = [x**2 for x in range(5)]  # [0, 1, 4, 9, 16]
+
+# With condition
+evens = [x for x in range(10) if x % 2 == 0]  # [0, 2, 4, 6, 8]
+
+# With transformation
+names = ['alice', 'bob', 'charlie']
+upper_names = [name.upper() for name in names]  # ['ALICE', 'BOB', 'CHARLIE']
+
+# Nested loops
+pairs = [(x, y) for x in range(3) for y in range(2)]  # [(0,0), (0,1), (1,0), (1,1), (2,0), (2,1)]
+```
+
+**Advantages:**
+- More concise than traditional loops
+- Often faster for simple operations
+- More Pythonic and readable
+
+**When to Use:**
+- Simple transformations and filtering
+- Avoid for complex logic (use regular loops instead)
+
+## 10 Dictionary in python (04:15:37)
+
+# Here are the key dictionary concepts in Python:
+
+**Creation & Access**
+```python
+# Creating dictionaries
+d = {'key': 'value', 'name': 'John'}
+d = dict(name='John', age=25)
+
+# Accessing values
+value = d['key']  # KeyError if key doesn't exist
+value = d.get('key', 'default')  # Returns default if key missing
+```
+
+**Common Methods**
+```python
+d.keys()      # Get all keys
+d.values()    # Get all values  
+d.items()     # Get key-value pairs
+d.update()    # Merge dictionaries
+d.pop()       # Remove and return value
+d.clear()     # Remove all items
+```
+
+**Key Properties**
+- Keys must be immutable (strings, numbers, tuples)
+- Keys are unique - duplicates overwrite
+- Dictionaries are mutable and ordered (Python 3.7+)
+- Fast O(1) average lookup time
+
+**Iteration**
+```python
+for key in dict:           # Iterate keys
+for value in dict.values(): # Iterate values
+for k, v in dict.items():  # Iterate pairs
+```
+
+**Dictionary Comprehension**
+```python
+{k: v for k, v in items if condition}
+```
+
+**Membership Testing**
+```python
+'key' in dict     # Check if key exists
+'key' not in dict # Check if key doesn't exist
+```
+
+# Dictionaries are Python's implementation of hash tables/maps, making them essential for key-value storage and fast lookups.
+
+## 11 Tuples in python (04:41:51)
+
+# Here are the key concepts of tuples in Python:
+
+**Definition**: Tuples are ordered, immutable collections of items enclosed in parentheses `()`.
+
+**Creation**:
+```python
+t = (1, 2, 3)
+t = 1, 2, 3  # parentheses optional
+empty = ()
+single = (5,)  # comma needed for single item
+```
+
+**Immutability**: Once created, you cannot change, add, or remove elements.
+```python
+t = (1, 2, 3)
+# t[0] = 5  # This raises an error
+```
+
+**Indexing and Slicing**: Access elements using square brackets, supports negative indexing.
+```python
+t = (1, 2, 3, 4)
+print(t[0])    # 1
+print(t[-1])   # 4
+print(t[1:3])  # (2, 3)
+```
+
+**Multiple Assignment (Unpacking)**:
+```python
+t = (1, 2, 3)
+a, b, c = t  # a=1, b=2, c=3
+```
+
+**Common Methods**:
+- `count()` - counts occurrences
+- `index()` - finds first occurrence index
+- `len()` - returns length
+
+**Use Cases**: 
+- Storing coordinates `(x, y)`
+- Function return values
+- Dictionary keys (since they're hashable)
+- Configuration settings that shouldn't change
+
+**Advantages**: Faster than lists for iteration, hashable (can be dict keys), memory efficient.
