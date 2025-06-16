@@ -547,3 +547,58 @@ a, b, c = t  # a=1, b=2, c=3
 - Configuration settings that shouldn't change
 
 **Advantages**: Faster than lists for iteration, hashable (can be dict keys), memory efficient.
+
+## 12 Solve 10 conditional problem in python (04:51:32)
+
+## 13 Solve 10 loops problem in python (05:45:06)
+
+## 14 Behind the scene of loops in python (06:34:42)
+
+# Iteration tools : for, comprehension
+
+# Iterable Objects : list, string, file (file also iterable object)
+
+# __next__
+
+### Loop working behind the scene 
+
+1. **Iteration Tools in Python**  
+   - Python provides several iteration tools like `for` loops, comprehensions, and `map` to iterate over data structures.
+
+2. **Iterable Objects**  
+   - Objects that can be looped over (like lists, strings, and files) are called **iterables**.  
+   - These objects internally implement the `__iter__()` method, which returns an **iterator**.
+
+3. **Iterator Protocol**  
+   - An iterator must have the `__next__()` method, which returns the next value in the sequence.  
+   - When no more items are left, it raises a `StopIteration` exception.  
+   - Example:  
+     ```python
+     my_list = [1, 2, 3]
+     iterator = iter(my_list)  # Calls __iter__()
+     print(next(iterator))     # Calls __next__() → 1
+     print(next(iterator))     # 2
+     print(next(iterator))     # 3
+     print(next(iterator))     # Raises StopIteration
+     ```
+
+4. **How `for` Loops Work Behind the Scenes**  
+   - A `for` loop internally:  
+     1. Calls `iter()` on the iterable to get an iterator.  
+     2. Repeatedly calls `next()` on the iterator.  
+     3. Stops when `StopIteration` is raised.  
+
+5. **Files as Iterables**  
+   - File objects in Python are iterable.  
+   - When iterating over a file, each `__next__()` call reads the next line.  
+   - Example:  
+     ```python
+     with open("file.txt") as f:
+         for line in f:  # Uses __next__() internally
+             print(line.strip())
+     ```
+
+6. **Key Takeaways**  
+   - Iteration in Python relies on the `__iter__()` and `__next__()` methods.  
+   - Understanding these concepts helps in writing efficient loops and custom iterable objects.  
+
