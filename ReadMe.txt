@@ -602,3 +602,6 @@ a, b, c = t  # a=1, b=2, c=3
    - Iteration in Python relies on the `__iter__()` and `__next__()` methods.  
    - Understanding these concepts helps in writing efficient loops and custom iterable objects.  
 
+## 15 Solve 10 problems on functions in python (07:03:47)
+
+## 16 Scopes and closure in python (08:02:55)
