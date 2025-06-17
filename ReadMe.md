@@ -3,19 +3,19 @@
 
 ==> python code  -------- python Interpreter ------> Byte Code (mostly hidden) --------> Python Virtual Machine (PVM)
 
-### Step 1 - compiled to Byte Code (although python is Interpretered language, here compiled is just technical term)
+- Step 1 - compiled to Byte Code (although python is Interpretered language, here compiled is just technical term)
 
-#### Byte Code - Byte Code is low level code which is Platform Independent (ByteCode is not machine code). It runs faster
+- Byte Code - Byte Code is low level code which is Platform Independent (ByteCode is not machine code). It runs faster
 
 #### `.pyc` --> It is compiled python (frozen Binaries)
 
-#### __pycache__ is a directory that Python automatically creates to store compiled bytecode files (.pyc files) for faster program execution.
+- `__pycache__` is a directory that Python automatically creates to store compiled bytecode files (.pyc files) for faster program execution.
 
-##### When we run a Python script, the interpreter compiles your .py source files into bytecode and caches them in __pycache__ folders. This compilation step is skipped on subsequent runs if the source file hasn't changed, making our programs start faster.
+- When we run a Python script, the interpreter compiles your .py source files into bytecode and caches them in __pycache__ folders. This compilation step is skipped on subsequent runs if the source file hasn't changed, making our programs start faster.
 
-#### `hello_python.cpython-312.pyc` :- is the compiled bytecode version of your `hello_python.py` source file. It represent source change and Python Version
+- `hello_python.cpython-312.pyc` :- is the compiled bytecode version of your `hello_python.py` source file. It represent source change and Python Version
 
-#### Above file `hello_python.cpython-312.pyc` works only for imported files, not for top level files.
+- Above file `hello_python.cpython-312.pyc` works only for imported files, not for top level files.
 
 #### What `hello_python.cpython-312.pyc` represents:
 - Compiled bytecode :- our Python source code translated into Python's intermediate bytecode format
@@ -83,11 +83,11 @@ hello.py → bytecode → PVM → actual execution
 - Frozen sets: frozenset({1, 2}) - immutable version of sets
 - Booleans: True, False
 
-#### Why it matters: Affects how objects behave when passed to functions, assigned to variables, or used as dictionary keys (only immutable objects can be dict keys).
+- Why it matters: Affects how objects behave when passed to functions, assigned to variables, or used as dictionary keys (only immutable objects can be dict keys).
 
-### Mutable objects can have side effects (modify original data)
-### Immutable objects are safer - no unexpected changes
-### Use immutable objects when you want to prevent accidental modifications
+- Mutable objects can have side effects (modify original data)
+- Immutable objects are safer - no unexpected changes
+- Use immutable objects when you want to prevent accidental modifications
 
 ## 05 Python Data Types - Big Picture (01:23:48)
 
