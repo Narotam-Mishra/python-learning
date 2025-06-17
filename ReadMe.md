@@ -726,11 +726,11 @@ Problem: Implement an exponential backoff strategy that doubles the wait time be
 
 ## 14 Behind the scene of loops in python (06:34:42)
 
-### Iteration tools : for, comprehension
+- Iteration tools : for, comprehension
 
-### Iterable Objects : list, string, file (file also iterable object)
+- Iterable Objects : list, string, file (file also iterable object)
 
-### `__next__` :- this method returns next value
+- `__next__` :- this method returns next value
 
 ### Loop working behind the scene 
 
