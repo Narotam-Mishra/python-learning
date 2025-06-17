@@ -128,12 +128,11 @@ hello.py → bytecode → PVM → actual execution
 ### Mutable (can change in-place): list, dict, set
 - Modifying them affects all references.
 
-#. Variable Assignment & References
-- Assigning a variable (a = b) creates a reference, not a copy.
+- Variable Assignment & References :- Assigning a variable (a = b) creates a reference, not a copy.
 
 ### To copy a list, use slicing (b = a[:]) or copy.copy().
 
-#. `is` vs `==`
+#### `is` vs `==`
 - `==` checks value equality.
 - `is` checks memory identity (same object):
 
