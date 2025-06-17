@@ -702,3 +702,309 @@ print(x)  # Output: 88 (global changed)
 - **Analogy**: Like rooms in a house—search locally first, then move outward.  
 
 This aligns with similar concepts in JavaScript (closures) and other languages.
+
+## 17 Object Oriented Programming in python (08:33:47)
+
+### **1. Creating a Class & Objects**
+- **Class**: A blueprint for creating objects. Defined using the `class` keyword (PascalCase convention).  
+  ```python
+  class Car:
+      brand = None  # Attributes (variables)
+      model = None
+  ```
+- **Object**: Instance of a class. Created by calling the class name.  
+  ```python
+  my_car = Car()  # Creates an object
+  ```
+
+### **2. Constructor (`__init__`)**
+- Special method called when an object is created. Used to initialize attributes.  
+  ```python
+  class Car:
+      def __init__(self, brand, model):
+          self.brand = brand  # Assign values to attributes
+          self.model = model
+  ```
+- **`self`**: Refers to the instance of the class (like `this` in other languages).  
+
+### **3. Adding Methods**
+- Methods are functions defined inside a class.  
+  ```python
+  class Car:
+      def full_name(self):
+          return f"{self.brand} {self.model}"
+  ```
+- Call methods using object:  
+  ```python
+  my_car = Car("Tata", "Safari")
+  print(my_car.full_name())  # Output: Tata Safari
+  ```
+
+### **4. Inheritance**
+- Child class inherits attributes/methods from a parent class.  
+  ```python
+  class ElectricCar(Car):  # Inherits from Car
+      def __init__(self, brand, model, battery_size):
+          super().__init__(brand, model)  # Call parent constructor
+          self.battery_size = battery_size
+  ```
+- **`super()`**: Used to access parent class methods/attributes.  
+
+### **Key Takeaways**
+1. **Class**: Template for objects.  
+2. **Object**: Instance of a class.  
+3. **`__init__`**: Constructor to initialize attributes.  
+4. **`self`**: Refers to the current instance.  
+5. **Inheritance**: Reuse parent class features in a child class.  
+
+### Example:
+```python
+my_tesla = ElectricCar("Tesla", "Model S", "85kWh")
+print(my_tesla.full_name())  # Output: Tesla Model S
+print(my_tesla.battery_size)  # Output: 85kWh
+```  
+
+### **Encapsulation in Python (Summary with Getter & Setter Example)**
+
+#### **1. What is Encapsulation?**  
+- **Definition**: Bundling data (attributes) and methods that operate on the data into a single unit (class).  
+- **Purpose**: Restrict direct access to data (attributes) to prevent unintended modifications.  
+- **Analogy**: Like a pill (capsule) where the medicine (data) is hidden inside, and you interact via methods (getters/setters).
+
+#### **2. Private Attributes in Python**  
+- Python uses `__` (double underscore) prefix to make attributes "private" (name mangling).  
+  ```python
+  class Car:
+      def __init__(self, brand):
+          self.__brand = brand  # Private attribute
+  ```
+- **Name Mangling**: `__brand` becomes `_Car__brand` internally (not truly private but inaccessible directly).
+
+#### **3. Getter & Setter Methods**  
+- **Getter**: Method to read a private attribute.  
+- **Setter**: Method to modify a private attribute.  
+
+##### **Example**:
+```python
+class Car:
+    def __init__(self, brand):
+        self.__brand = brand  # Private attribute
+
+    # Getter method
+    def get_brand(self):
+        return f"Brand: {self.__brand}!"
+
+    # Setter method
+    def set_brand(self, new_brand):
+        self.__brand = new_brand
+
+# Usage
+my_car = Car("Tesla")
+print(my_car.get_brand())  # Output: Brand: Tesla!
+my_car.set_brand("Toyota")
+print(my_car.get_brand())  # Output: Brand: Toyota!
+```
+
+#### **4. Why Use Getters/Setters?**  
+1. **Control Access**: Validate/modify data before setting/getting.  
+   ```python
+   def set_brand(self, new_brand):
+       if isinstance(new_brand, str):
+           self.__brand = new_brand
+       else:
+           print("Brand must be a string!")
+   ```
+2. **Encapsulation**: Hide internal implementation (e.g., change `__brand` to `_secret_code` later without breaking code).  
+
+#### **5. Key Takeaways**  
+- **Encapsulation**: Protect data by making attributes private (`__attribute`).  
+- **Getter**: `get_attribute()` to read data.  
+- **Setter**: `set_attribute(value)` to modify data.  
+- **Pythonic Way**: Use `@property` decorator for elegant getters/setters (advanced).  
+
+##### **Property Decorator Example**:
+```python
+class Car:
+    def __init__(self, brand):
+        self.__brand = brand
+
+    @property
+    def brand(self):
+        return self.__brand
+
+    @brand.setter
+    def brand(self, new_brand):
+        self.__brand = new_brand
+
+my_car = Car("BMW")
+print(my_car.brand)  # Output: BMW (getter)
+my_car.brand = "Audi"  # Setter
+``` 
+
+- Polymorphism means "many forms" – a single method or function can behave differently based on the object or input.  
+
+#### Key Points:  
+1. **Example**: The `+` operator is polymorphic:  
+   - Adds numbers (`5 + 3 → 8`).  
+   - Concatenates strings (`"hello" + "world" → "helloworld"`).  
+
+2. **Class-Based Polymorphism**:  
+   - Define the **same method name** in different classes (e.g., `fuel_type()` in `Car` and `ElectricCar`).  
+   - Each class implements the method differently:  
+     ```python
+     class Car:
+         def fuel_type(self):
+             return "Petrol/Diesel"
+     
+     class ElectricCar:
+         def fuel_type(self):
+             return "Electric Charge"
+     ```
+   - Calling `fuel_type()` on each object gives different results:  
+     ```python
+     safari = Car()       # safari.fuel_type() → "Petrol/Diesel"
+     tesla = ElectricCar() # tesla.fuel_type() → "Electric Charge"
+     ```
+
+3. **Types of Polymorphism**:  
+   - **Method Overriding**: Same method name, different implementation in subclasses (as shown above).  
+   - **Operator Overloading**: Same operator (like `+`) behaves differently for different data types.  
+
+#### Why Use Polymorphism?  
+- Simplifies code by using a **consistent interface** (e.g., one method name) for varied behaviors.  
+- Makes code flexible and scalable.  
+
+### In Short:  
+Polymorphism lets one method/operator work in multiple ways depending on the context (object type or input).
+
+### **Summary of Python Concepts (Class Variables & Static Methods)**  
+
+#### **1. Class Variables**  
+- **Purpose**: Track shared data across all instances of a class (e.g., count total cars created).  
+- **Example**:  
+  ```python
+  class Car:
+      total_cars = 0  # Class variable
+
+      def __init__(self):
+          Car.total_cars += 1  # Increment on each instance creation
+  ```  
+- **Access**:  
+  - Via class: `Car.total_cars`  
+  - Avoid accessing via instances (e.g., `my_car.total_cars`) to prevent confusion.  
+
+#### **2. Static Methods**  
+- **Purpose**: Methods bound to the **class** (not instances). Used for utility functions unrelated to instance data.  
+- **Syntax**: Use `@staticmethod` decorator (no `self` parameter).  
+- **Example**:  
+  ```python
+  class Car:
+      @staticmethod
+      def general_description():
+          return "Cars are means of transport."
+  ```  
+- **Key Points**:  
+  - Called via class: `Car.general_description()`.  
+  - **Cannot** access/modify instance-specific data (no `self`).  
+  - Contrast with **instance methods** (require `self`) and **class methods** (use `@classmethod`).  
+
+#### **3. Decorators (`@`)**
+- **Role**: Enhance functions/methods (e.g., `@staticmethod` modifies method behavior).  
+- **Real-world Use**: Frameworks like Flask/Django use decorators (e.g., `@login_required`).  
+
+#### **4. Key Takeaways**
+- **Class Variables**: Shared across instances; track global class state.  
+- **Static Methods**: Utility functions tied to the class (no instance dependency).  
+- **Decorators**: Powerful tools to modify function/method behavior.  
+
+### **Summary: Property Decorator in Python (Read-Only Attributes)**
+
+#### **1. Problem Statement**  
+- **Goal**: Make the `model` attribute of a class **read-only** (can be accessed but not modified after initialization).  
+- **Current Issue**: Without safeguards, `model` can be overwritten:  
+  ```python
+  my_car.model = "City"  # Unwanted modification!
+  ```
+
+#### **2. Solution Using `@property`**  
+- **Step 1**: Make `model` private (prefix with `__`).  
+- **Step 2**: Create a getter method with `@property` to allow read access.  
+
+**Example**:  
+```python
+class Car:
+    def __init__(self, brand, model):
+        self.__brand = brand
+        self.__model = model  # Private attribute
+
+    @property
+    def model(self):
+        return self.__model  # Read-only access
+```
+
+#### **3. Key Points**  
+- **Private Attribute**: `__model` prevents direct access/modification.  
+- **`@property`**: Converts `model()` method into a read-only property (accessed as `my_car.model` without parentheses).  
+- **Result**:  
+  ```python
+  my_car = Car("Tata", "Safari")
+  print(my_car.model)  # Works: "Safari"
+  my_car.model = "City"  # Fails: AttributeError (read-only)
+  ```
+
+#### **4. Why Use `@property`?**  
+- **Encapsulation**: Control attribute access (e.g., add validation/logging in getters/setters).  
+- **Backward Compatibility**: Change internal logic without breaking existing code.  
+
+#### **5. Advanced Use**  
+- **Setters**: Use `@model.setter` to allow controlled modifications (if needed).  
+- **Deleter**: Use `@model.deleter` to customize deletion behavior.  
+
+**Next Steps**: Explore `@classmethod` and other decorators!  
+
+---  
+**Key Takeaway**: `@property` enforces read-only attributes by combining private variables with controlled access methods.
+
+### **Summary: Python Concepts (Multiple Inheritance & `isinstance()`)**  
+
+#### **1. `isinstance()` Function**  
+- **Purpose**: Checks if an object is an instance of a class (or its subclasses).  
+- **Syntax**: `isinstance(object, ClassName)` → Returns `True`/`False`.  
+- **Example**:  
+  ```python
+  my_tesla = ElectricCar("Tesla", "Model S")
+  print(isinstance(my_tesla, Car))          # True (ElectricCar inherits Car)
+  print(isinstance(my_tesla, ElectricCar))  # True
+  ```
+
+#### **2. Multiple Inheritance**  
+- **Concept**: A class can inherit from **multiple parent classes**.  
+- **Example**:  
+  ```python
+  class Battery:
+      def battery_info(self):
+          return "This is a battery."
+
+  class Engine:
+      def engine_info(self):
+          return "This is an engine."
+
+  class ElectricCar2(Car, Battery, Engine):  # Inherits from 3 classes
+      pass
+
+  my_new_tesla = ElectricCar2("Tesla", "Model A")
+  print(my_new_tesla.battery_info())  # Output: "This is a battery."
+  print(my_new_tesla.engine_info())   # Output: "This is an engine."
+  ```
+
+#### **3. Key Takeaways**  
+- **`isinstance()`**: Verifies object-class relationships (useful in polymorphism).  
+- **Multiple Inheritance**:  
+  - Combine functionalities from multiple parents.  
+  - Order matters (method resolution follows **MRO**).  
+
+**Analogy**:  
+- `isinstance()` → Asking *"Are you a Car?"* to an `ElectricCar` object (answer: Yes).  
+- Multiple Inheritance → A hybrid car inheriting traits from both `Electric` and `Fuel` classes.  
+
+**Next Steps**: Explore **Method Resolution Order (MRO)** for complex inheritance!
