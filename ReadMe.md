@@ -550,7 +550,180 @@ a, b, c = t  # a=1, b=2, c=3
 
 ## 12 Solve 10 conditional problem in python (04:51:32)
 
+### questions on conditionals
+
+<details>
+<summary>1. Age Group Categorization
+</summary>
+Classify a person's age group: Child (< 13), Teenager (13-19), Adult (20-59), Senior (60+).
+
+</details>
+
+<details>
+<summary>2. Movie Ticket Pricing
+</summary>
+Problem: Movie tickets are priced based on age: $12 for adults (18 and over), $8 for children. Everyone gets a $2 discount on Wednesday.
+
+</details>
+
+<details>
+<summary>3. Grade Calculator
+</summary>
+Problem: Assign a letter grade based on a student's score: A (90-100), B (80-89), C (70-79), D (60-69), F (below 60).
+
+</details>
+
+<details>
+<summary>4. Fruit Ripeness Checker
+</summary>
+Problem: Determine if a fruit is ripe, overripe, or unripe based on its color. (e.g., Banana: Green - Unripe, Yellow - Ripe, Brown - Overripe)
+
+</details>
+
+<details>
+<summary>5. Weather Activity Suggestion
+</summary>
+Problem: Suggest an activity based on the weather (e.g., Sunny - Go for a walk, Rainy - Read a book, Snowy - Build a snowman).
+
+</details>
+
+<details>
+<summary>6. Transportation Mode Selection
+</summary>
+Problem: Choose a mode of transportation based on the distance (e.g., <3 km: Walk, 3-15 km: Bike, >15 km: Car).
+
+</details>
+
+
+<details>
+<summary>7. Coffee Customization
+</summary>
+Problem: Customize a coffee order: "Small", "Medium", or "Large" with an option for "Extra shot" of espresso.
+
+</details>
+
+
+<details>
+<summary>8. Password Strength Checker
+</summary>
+Problem: Check if a password is "Weak", "Medium", or "Strong". Criteria: < 6 chars (Weak), 6-10 chars (Medium), >10 chars (Strong).
+
+</details>
+
+
+<details>
+<summary>9. Leap Year Checker
+</summary>
+Problem: Determine if a year is a leap year. (Leap years are divisible by 4, but not by 100 unless also divisible by 400).
+
+</details>
+
+
+<details>
+<summary>10. Pet Food Recommendation
+</summary>
+Problem: Recommend a type of pet food based on the pet's species and age. (e.g., Dog: <2 years - Puppy food, Cat: >5 years - Senior cat food).
+
+</details>
+
 ## 13 Solve 10 loops problem in python (05:45:06)
+
+## questions on loops in Python
+
+<details>
+<summary>
+1. Counting Positive Numbers
+</summary>
+Problem: Given a list of numbers, count how many are positive.
+
+```python
+numbers = [1, -2, 3, -4, 5, 6, -7, -8, 9, 10]
+```
+
+</details>
+
+
+<details>
+<summary>
+2. Sum of Even Numbers
+</summary>
+Problem: Calculate the sum of even numbers up to a given number n.
+
+</details>
+
+
+<details>
+<summary>
+3. Multiplication Table Printer
+</summary>
+Problem: Print the multiplication table for a given number up to 10, but skip the fifth iteration.
+
+</details>
+
+
+<details>
+<summary>
+4. Reverse a String
+</summary>
+Problem: Reverse a string using a loop.
+
+</details>
+
+
+<details>
+<summary>
+5. Find the First Non-Repeated Character
+</summary>
+Problem: Given a string, find the first non-repeated character.
+
+</details>
+
+
+<details>
+<summary>
+6. Factorial Calculator
+</summary>
+Problem: Compute the factorial of a number using a while loop.
+
+</details>
+
+
+<details>
+<summary>
+7. Validate Input
+</summary>
+Problem: Keep asking the user for input until they enter a number between 1 and 10.
+
+</details>
+
+
+<details>
+<summary>
+8. Prime Number Checker
+</summary>
+Problem: Check if a number is prime.
+
+</details>
+
+
+<details>
+<summary>
+9. List Uniqueness Checker
+</summary>
+Problem: Check if all elements in a list are unique. If a duplicate is found, exit the loop and print the duplicate.
+
+```python
+items = ["apple", "banana", "orange", "apple", "mango"]
+```
+</details>
+
+
+<details>
+<summary>
+10. Exponential Backoff
+</summary>
+Problem: Implement an exponential backoff strategy that doubles the wait time between retries, starting from 1 second, but stops after 5 retries.
+</details>
 
 ## 14 Behind the scene of loops in python (06:34:42)
 
@@ -603,6 +776,87 @@ a, b, c = t  # a=1, b=2, c=3
    - Understanding these concepts helps in writing efficient loops and custom iterable objects.  
 
 ## 15 Solve 10 problems on functions in python (07:03:47)
+
+### Learn all about functions by answering the questions below.
+
+<details>
+<summary>
+1. Basic Function Syntax
+</summary>
+Problem: Write a function to calculate and return the square of a number.
+</details>
+
+
+<details>
+<summary>
+2. Function with Multiple Parameters
+</summary>
+Problem: Create a function that takes two numbers as parameters and returns their sum.
+</details>
+
+
+<details>
+<summary>
+3. Polymorphism in Functions
+</summary>
+Problem: Write a function multiply that multiplies two numbers, but can also accept and multiply strings.
+</details>
+
+
+<details>
+<summary>
+4. Function Returning Multiple Values
+</summary>
+Problem: Create a function that returns both the area and circumference of a circle given its radius.
+</details>
+
+
+<details>
+<summary>
+5. Default Parameter Value
+</summary>
+Problem: Write a function that greets a user. If no name is provided, it should greet with a default name.
+</details>
+
+
+<details>
+<summary>
+6. Lambda Function
+</summary>
+Problem: Create a lambda function to compute the cube of a number.
+</details>
+
+
+<details>
+<summary>
+7. Function with *args
+</summary>
+Problem: Write a function that takes variable number of arguments and returns their sum.
+</details>
+
+
+<details>
+<summary>
+8. Function with **kwargs
+</summary>
+Problem: Create a function that accepts any number of keyword arguments and prints them in the format key: value.
+</details>
+
+
+<details>
+<summary>
+9. Generator Function with yield
+</summary>
+Problem: Write a generator function that yields even numbers up to a specified limit.
+</details>
+
+
+<details>
+<summary>
+10. Recursive Function
+</summary>
+Problem: Create a recursive function to calculate the factorial of a number.
+</details>
 
 ## 16 Scopes and closure in python (08:02:55)
 
@@ -960,9 +1214,6 @@ class Car:
 - **Setters**: Use `@model.setter` to allow controlled modifications (if needed).  
 - **Deleter**: Use `@model.deleter` to customize deletion behavior.  
 
-**Next Steps**: Explore `@classmethod` and other decorators!  
-
----  
 **Key Takeaway**: `@property` enforces read-only attributes by combining private variables with controlled access methods.
 
 ### **Summary: Python Concepts (Multiple Inheritance & `isinstance()`)**  
@@ -1007,4 +1258,146 @@ class Car:
 - `isinstance()` → Asking *"Are you a Car?"* to an `ElectricCar` object (answer: Yes).  
 - Multiple Inheritance → A hybrid car inheriting traits from both `Electric` and `Fuel` classes.  
 
-**Next Steps**: Explore **Method Resolution Order (MRO)** for complex inheritance!
+## 18 What are decorators in python (09:42:11)
+
+- Decorators are functions that wrap other functions to add extra behavior — without changing the original function's code.
+
+- We can think of them like "wrappers" or "plugins" for functions or methods.
+
+🔍 Syntax
+``` python
+@decorator_name
+def function_to_decorate():
+    ...
+```
+
+### This is equivalent to:
+``` python
+function_to_decorate = decorator_name(function_to_decorate)
+```
+
+### Summary of Python Decorators Concept
+
+- **Python decorators** are a powerful feature used to modify or extend the behavior of functions without changing their actual code. Decorators act like "toll booths" where every function call must pass through them before execution.
+
+#### Key Concepts:
+1. **What is a Decorator?**  
+   - A decorator is a function that takes another function as input, adds some functionality, and returns a modified function.
+   - Example use cases: logging, timing, access control (like `@login_required` in Django).
+
+2. **How Decorators Work?**  
+   - Decorators use **higher-order functions** (functions that take functions as arguments).
+   - The structure involves:
+     - A **wrapper function** inside the decorator to execute additional logic.
+     - Accepting `*args` and `**kwargs` to handle arbitrary arguments.
+     - Returning the wrapper function.
+
+3. **Example 1: Timing Function Execution**  
+   - A decorator that measures how long a function takes to run:
+     ```python
+     import time
+
+     def timer(func):
+         def wrapper(*args, **kwargs):
+             start = time.time()
+             result = func(*args, **kwargs)  # Execute the original function
+             end = time.time()
+             print(f"{func.__name__} ran in {end - start} seconds")
+             return result
+         return wrapper
+
+     @timer
+     def example_func(n):
+         time.sleep(n)
+     ```
+
+4. **Example 2: Debugging Function Calls**  
+   - A decorator that logs function names and arguments:
+     ```python
+     def debug(func):
+         def wrapper(*args, **kwargs):
+             print(f"Calling {func.__name__} with args: {args}, kwargs: {kwargs}")
+             return func(*args, **kwargs)
+         return wrapper
+
+     @debug
+     def greet(name, greeting="Hello"):
+         print(f"{greeting}, {name}!")
+     ```
+
+5. **Practical Use Cases**  
+   - **Logging**: Track function calls and arguments.
+   - **Timing**: Measure execution time.
+   - **Access Control**: Restrict function access (e.g., `@login_required`).
+   - **Input Validation**: Check arguments before execution.
+
+6. **Why Use Decorators?**  
+   - **Reusability**: Apply the same logic to multiple functions.
+   - **Non-Invasive**: Modify behavior without changing the original function.
+   - **Clean Code**: Separate cross-cutting concerns (like logging) from business logic.
+
+#### Analogy:
+- Decorators are like **toll booths** on a highway. Every vehicle (function call) must pass through them, where checks (logging, timing, etc.) can be performed before proceeding.
+
+This concept is widely used in frameworks like **Django** and **Flask** for route handling, authentication, and more.
+
+### Explanation of the `@cache` Decorator Behavior
+
+In your example, the line `print("Cache Values:", cache_value)` **only executes once** when the decorator `@cache` is applied to `long_running_function`, not on every function call.
+
+### How Decorators Work in Python:
+1. **Decorator Setup Phase (Runs Once)**  
+   - When Python sees `@cache` above `long_running_function`, it immediately executes `cache(long_running_function)`.
+   - This creates the `cache_value = {}` dictionary and prints `"Cache Values: {}"` **once**.
+   - The decorator **returns the `wrapper` function**, which replaces `long_running_function`.
+
+2. **Function Call Phase (Runs on Each Call)**  
+   - When you call `long_running_function(2, 3)`, you’re actually calling the `wrapper(*args)` function.
+   - The `wrapper` checks `cache_value` (which persists across calls because it’s in the decorator’s closure) and either:
+     - Returns the cached result (if `args` exists in `cache_value`).
+     - Computes and caches the result (if `args` is new).
+
+### Key Observations:
+- **`print("Cache Values:")` runs only once** during decorator setup, not on each call.
+- **`cache_value` persists** because it’s defined in the outer `cache` function’s scope (closure).  
+  - After the first call (`long_running_function(2, 3)`), `cache_value` becomes `{(2, 3): 5}`.
+  - The second call (`long_running_function(2, 3)`) hits the cache and skips recomputation.
+  - The third call (`long_running_function(5, 9)`) adds `{(5, 9): 14}` to `cache_value`.
+
+
+### Expected Output:
+```plaintext
+Cache Values: {}                      # Printed once during decorator setup
+first call: 5                         # Computed (takes 4 seconds)
+second call: 5                        # Served from cache (instant)
+third call: 14                        # Computed again (takes 4 seconds)
+```
+
+---
+
+### Why This Design?
+- The decorator’s **setup logic** (like initializing `cache_value`) runs once when the function is decorated.
+- The **`wrapper` logic** runs on every call, leveraging the pre-initialized `cache_value`.
+
+To print `cache_value` on every call, move the `print` inside `wrapper`:
+```python
+def wrapper(*args):
+    if args in cache_value:
+        print("Cache hit:", cache_value)
+        return cache_value[args]
+    res = func(*args)
+    cache_value[args] = res
+    print("Cache updated:", cache_value)
+    return res
+```
+
+Now you’ll see:
+```plaintext
+Cache Values: {}                      # Initial setup
+Cache updated: {(2, 3): 5}            # First call (miss)
+first call: 5
+Cache hit: {(2, 3): 5}                # Second call (hit)
+second call: 5
+Cache updated: {(2, 3): 5, (5, 9): 14}# Third call (miss)
+third call: 14
+```
