@@ -3,61 +3,61 @@
 
 ==> python code  -------- python Interpreter ------> Byte Code (mostly hidden) --------> Python Virtual Machine (PVM)
 
-# Step 1 - compiled to Byte Code (although python is Interpretered language, here compiled is just technical term)
+### Step 1 - compiled to Byte Code (although python is Interpretered language, here compiled is just technical term)
 
-# Byte Code - Byte Code is low level code which is Platform Independent (ByteCode is not machine code). It runs faster
+#### Byte Code - Byte Code is low level code which is Platform Independent (ByteCode is not machine code). It runs faster
 
-# `.pyc` --> It is compiled python (frozen Binaries)
+#### `.pyc` --> It is compiled python (frozen Binaries)
 
-# __pycache__ is a directory that Python automatically creates to store compiled bytecode files (.pyc files) for faster program execution.
+#### __pycache__ is a directory that Python automatically creates to store compiled bytecode files (.pyc files) for faster program execution.
 
-# When we run a Python script, the interpreter compiles your .py source files into bytecode and caches them in __pycache__ folders. This compilation step is skipped on subsequent runs if the source file hasn't changed, making our programs start faster.
+##### When we run a Python script, the interpreter compiles your .py source files into bytecode and caches them in __pycache__ folders. This compilation step is skipped on subsequent runs if the source file hasn't changed, making our programs start faster.
 
-# `hello_python.cpython-312.pyc` :- is the compiled bytecode version of your `hello_python.py` source file. It represent source change and Python Version
+#### `hello_python.cpython-312.pyc` :- is the compiled bytecode version of your `hello_python.py` source file. It represent source change and Python Version
 
-# Above file `hello_python.cpython-312.pyc` works only for imported files, not for top level files.
+#### Above file `hello_python.cpython-312.pyc` works only for imported files, not for top level files.
 
-# What `hello_python.cpython-312.pyc` represents:
+#### What `hello_python.cpython-312.pyc` represents:
 - Compiled bytecode :- our Python source code translated into Python's intermediate bytecode format
 - Version-specific: The "cpython-312" indicates it was compiled with CPython interpreter version 3.12
 - Binary format: Contains low-level instructions that the Python virtual machine can execute directly
 
-# Key point :- This file `hello_python.cpython-312.pyc` is only created when your script is imported as a module by another script, not when you run it directly with python hello_python.py. For direct execution, Python compiles to memory without saving the .pyc file.
+#### Key point :- This file `hello_python.cpython-312.pyc` is only created when your script is imported as a module by another script, not when you run it directly with python hello_python.py. For direct execution, Python compiles to memory without saving the .pyc file.
 
-# Facts about Python Virtual Machine (PVM) :-
+#### Facts about Python Virtual Machine (PVM) :-
 - Code loop to iterate byte code
 - Runtime engine
 - Also known as `python interpreter`
 
-# Byte Code is not machine code, it is
+#### Byte Code is not machine code, it is
 - python specific interpretation,
 - cypthon (standard implementation), jython, Inron python, stackless, pypy. These are different implementations of the Python programming language - alternative ways to run Python code with different underlying engines and features.
 
-# Key point: They all run the same Python code but use different underlying technologies, offering various performance characteristics and platform integrations. CPython remains the reference implementation that most people use.
+#### Key point: They all run the same Python code but use different underlying technologies, offering various performance characteristics and platform integrations. CPython remains the reference implementation that most people use.
 
-# Python Virtual Machine (PVM) :- The Python Virtual Machine (PVM) is the runtime engine that executes Python bytecode. It's the core component that actually runs your Python programs.
+#### Python Virtual Machine (PVM) :- The Python Virtual Machine (PVM) is the runtime engine that executes Python bytecode. It's the core component that actually runs your Python programs.
 
-# PVM is 
+#### PVM is 
 - An interpreter that reads and executes Python bytecode instructions
 - Part of the Python interpreter (like CPython, PyPy, etc.)
 - Acts as an abstraction layer between your code and the operating system
 
-How PVM works:
+#### How PVM works:
 - Python source code (.py) → compiled to bytecode (.pyc)
 - PVM reads bytecode instructions one by one
 - Executes each instruction (variable assignment, function calls, loops, etc.)
 
-# Example flow 
+#### Example flow 
 hello.py → bytecode → PVM → actual execution
 
-# How Python Works Internally (Detailed) - https://claude.ai/share/8b16fe6e-2be1-47c7-8b3b-7344745b286f
+#### How Python Works Internally (Detailed) - https://claude.ai/share/8b16fe6e-2be1-47c7-8b3b-7344745b286f
 
-# # Python Execution model - https://claude.ai/share/dc253a1c-048b-48fb-9b67-4eb7a89cc260
+#### Python Execution model - https://claude.ai/share/dc253a1c-048b-48fb-9b67-4eb7a89cc260
 
 
 ## 03 Python in shell (00:46:36)
 
-# Python shell is useful for :-
+### Python shell is useful for :-
 - Interactive Development
 - Data Exploration
 - Learning & Prototyping
@@ -66,32 +66,32 @@ hello.py → bytecode → PVM → actual execution
 
 ## 04 Immutable and mutable in python (01:06:40)
 
-# Immutable and Mutable are something that is related to memory reference in python
+### Immutable and Mutable are something that is related to memory reference in python
 
-# Mutable Objects - Can be changed after creation:
+#### Mutable Objects - Can be changed after creation:
 
-a). Lists: [1, 2, 3] - can add, remove, or modify elements
-b). Dictionaries: {'a': 1} - can add, update, or delete key-value pairs
-c). Sets: {1, 2, 3} - can add or remove elements
-d). User-defined objects - attributes can be modified
+- Lists: [1, 2, 3] - can add, remove, or modify elements
+- Dictionaries: {'a': 1} - can add, update, or delete key-value pairs
+- Sets: {1, 2, 3} - can add or remove elements
+- User-defined objects - attributes can be modified
 
-# Immutable Objects - Cannot be changed after creation:
+#### Immutable Objects - Cannot be changed after creation:
 
-a). Strings: "hello" - operations create new strings
-b). Tuples: (1, 2, 3) - cannot modify elements
-c). Numbers: 42, 3.14 - operations create new values
-d). Frozen sets: frozenset({1, 2}) - immutable version of sets
-e). Booleans: True, False
+- Strings: "hello" - operations create new strings
+- Tuples: (1, 2, 3) - cannot modify elements
+- Numbers: 42, 3.14 - operations create new values
+- Frozen sets: frozenset({1, 2}) - immutable version of sets
+- Booleans: True, False
 
-# Why it matters: Affects how objects behave when passed to functions, assigned to variables, or used as dictionary keys (only immutable objects can be dict keys).
+#### Why it matters: Affects how objects behave when passed to functions, assigned to variables, or used as dictionary keys (only immutable objects can be dict keys).
 
-# Mutable objects can have side effects (modify original data)
-# Immutable objects are safer - no unexpected changes
-# Use immutable objects when you want to prevent accidental modifications
+### Mutable objects can have side effects (modify original data)
+### Immutable objects are safer - no unexpected changes
+### Use immutable objects when you want to prevent accidental modifications
 
 ## 05 Python Data Types - Big Picture (01:23:48)
 
-# Data Types / Object Types
+#### Data Types / Object Types
 
 - Number : 1234, 3.14, 3+4j, 0b111, Decimal(), Fraction()
 - String : 'spam', "Bob's", b'a\x01c, u'sp\xc4m'
@@ -111,7 +111,7 @@ e). Booleans: True, False
 
 ## 06 Internal working of python (01:54:35)
 
-# Python Internals & Memory Management
+### Python Internals & Memory Management
 
 - Python uses dynamic typing—variables don’t have types, but the objects they reference do.
 
@@ -121,31 +121,31 @@ e). Booleans: True, False
 
 - Optimization: Python caches small integers and strings for efficiency (e.g., 5 or "hello" may reuse the same memory).
 
-# Mutable vs Immutable Objects
+### Mutable vs Immutable Objects
 - Immutable (can’t change after creation): int, float, str, tuple
   - Changing them creates a new object.
 
-# Mutable (can change in-place): list, dict, set
+### Mutable (can change in-place): list, dict, set
 - Modifying them affects all references.
 
 #. Variable Assignment & References
 - Assigning a variable (a = b) creates a reference, not a copy.
 
-# To copy a list, use slicing (b = a[:]) or copy.copy().
+### To copy a list, use slicing (b = a[:]) or copy.copy().
 
 #. `is` vs `==`
 - `==` checks value equality.
 - `is` checks memory identity (same object):
 
-# Garbage Collection
+### Garbage Collection
 - Python’s GC cleans up objects with zero references.
 - Exception: Small integers/strings may linger for reuse.
 
-# Behind-the-Scenes Optimization
+### Behind-the-Scenes Optimization
 - Python pre-allocates small integers (-5 to 256) for speed.
 - Interning: Reuses immutable objects (like short strings) to save memory.
 
-# Key Takeaways :-
+### Key Takeaways :-
 - Variables are labels, not boxes. Objects live independently in memory.
 - Mutable objects can lead to unexpected side effects if shared.
 - Use copy() or slicing to avoid accidental reference sharing.
@@ -452,7 +452,7 @@ pairs = [(x, y) for x in range(3) for y in range(2)]  # [(0,0), (0,1), (1,0), (1
 
 ## 10 Dictionary in python (04:15:37)
 
-# Here are the key dictionary concepts in Python:
+### Here are the key dictionary concepts in Python:
 
 **Creation & Access**
 ```python
@@ -499,11 +499,11 @@ for k, v in dict.items():  # Iterate pairs
 'key' not in dict # Check if key doesn't exist
 ```
 
-# Dictionaries are Python's implementation of hash tables/maps, making them essential for key-value storage and fast lookups.
+### Dictionaries are Python's implementation of hash tables/maps, making them essential for key-value storage and fast lookups.
 
 ## 11 Tuples in python (04:41:51)
 
-# Here are the key concepts of tuples in Python:
+### Here are the key concepts of tuples in Python:
 
 **Definition**: Tuples are ordered, immutable collections of items enclosed in parentheses `()`.
 
@@ -554,11 +554,11 @@ a, b, c = t  # a=1, b=2, c=3
 
 ## 14 Behind the scene of loops in python (06:34:42)
 
-# Iteration tools : for, comprehension
+### Iteration tools : for, comprehension
 
-# Iterable Objects : list, string, file (file also iterable object)
+### Iterable Objects : list, string, file (file also iterable object)
 
-# __next__
+### `__next__` :- this method returns next value
 
 ### Loop working behind the scene 
 
@@ -605,3 +605,100 @@ a, b, c = t  # a=1, b=2, c=3
 ## 15 Solve 10 problems on functions in python (07:03:47)
 
 ## 16 Scopes and closure in python (08:02:55)
+
+#### **1. Basics of Scope**  
+- **Scope** defines where a variable is accessible in your code.  
+- In Python, variables can be **global** (accessible everywhere) or **local** (accessible only within a function).  
+- Example:  
+  ```python
+  username = "chai aur code"  # Global variable
+  
+  def func():
+      username = "chai"  # Local variable (only inside func)
+      print(username)    # Prints "chai"
+  
+  func()
+  print(username)       # Prints "chai aur code" (global unchanged)
+  ```
+
+#### **2. Nested Scopes (LEGB Rule)**  
+Python resolves variable names using the **LEGB rule**:  
+1. **L**ocal (inside current function)  
+2. **E**nclosing (nested functions)  
+3. **G**lobal (module-level)  
+4. **B**uilt-in (Python’s built-ins like `print`, `len`)  
+
+Example:  
+```python
+x = 99  # Global
+
+def func2(y):
+    z = x + y  # Uses global x (99) + local y
+    return z
+
+print(func2(1))  # Output: 100
+```
+
+#### **3. Modifying Global Variables**  
+- Use the `global` keyword to modify a global variable inside a function.  
+- **Avoid overusing** `global`—it can lead to unpredictable code.  
+
+Example:  
+```python
+x = 99  
+
+def func3():
+    global x  
+    x = 88  # Modifies global x
+
+func3()
+print(x)  # Output: 88 (global changed)
+```
+#### **4. Key Takeaways**  
+- **Local variables** exist only inside functions.  
+- **Global variables** are accessible everywhere but should be modified cautiously.  
+- **`global` keyword** forces Python to use the global variable (use sparingly).  
+- **Best Practice**: Prefer passing variables as arguments instead of relying on `global`.  
+
+
+1. **Variable Scope & Climbing (LEGB Rule)**  
+   - Python follows the **LEGB (Local → Enclosing → Global → Built-in)** rule to find variables.  
+   - If a variable isn’t found locally, Python checks the enclosing scope, then global, and finally built-in.  
+   - Example:  
+     ```python
+     x = 99  # Global
+     def f1():
+         x = 88  # Local to f1
+         def f2():
+             print(x)  # Looks for x in local → enclosing (f1's x = 88) → global (99)
+         f2()
+     f1()  # Output: 88 (enclosing scope)
+     ```
+
+2. **Returning Functions (Closures)**  
+   - A function can return another function (not just execute it).  
+   - The returned function retains access to variables from its enclosing scope (**closure**).  
+   - Example:  
+     ```python
+     def tea_coder(n):
+         def actual(x):
+             return x ** n  # n is "packed" with the function
+         return actual  # Return the function, not its execution
+
+     f = tea_coder(2)  # f is now actual(x) with n=2 (x²)
+     g = tea_coder(3)  # g is actual(x) with n=3 (x³)
+     print(f(3))  # 9 (3²)
+     print(g(3))  # 27 (3³)
+     ```
+   - **Key Idea**: The inner function (`actual`) remembers `n` from the outer scope even after `tea_coder` finishes execution.
+
+3. **Practical Use of Closures**  
+   - Closures are useful for creating **function factories** (e.g., custom power functions).  
+   - Common in Python (e.g., decorators, Django/Flask frameworks).  
+
+### **Key Takeaways**  
+- **Scope Resolution**: Python checks variables in **Local → Enclosing → Global → Built-in** order.  
+- **Closures**: Functions returned with "packed" variables from their enclosing scope.  
+- **Analogy**: Like rooms in a house—search locally first, then move outward.  
+
+This aligns with similar concepts in JavaScript (closures) and other languages.
