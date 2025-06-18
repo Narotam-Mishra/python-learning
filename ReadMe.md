@@ -1836,3 +1836,208 @@ The SQLite database file (`youtube_videos.db`) is created in the same directory 
 
 - [Requests - Python HTTP Library](https://pypi.org/project/requests/)
 
+## Python Project - Youtube manager with mongoDB (02:07:43)
+
+- `config.py` - Step by Step Explanation
+
+### Step 1: Import Required Modules
+
+```python
+import os
+from dotenv import load_dotenv
+```
+
+**What this does:**
+- `import os`: Imports Python's built-in operating system interface module
+- `from dotenv import load_dotenv`: Imports the `load_dotenv` function from the python-dotenv package
+
+**Why we need these:**
+- `os`: To access environment variables using `os.getenv()`
+- `load_dotenv`: To load environment variables from a `.env` file into the system environment
+
+### Step 2: Load Environment Variables
+
+```python
+# Load environment variables from .env file
+load_dotenv()
+```
+
+**What this does:**
+- Searches for a `.env` file in the current directory
+- Reads all key-value pairs from the `.env` file
+- Loads them into the system's environment variables
+
+**Example:**
+If your `.env` file contains:
+```
+MONGODB_URI=mongodb+srv://user:pass@cluster.net/
+DATABASE_NAME=ytmanager
+```
+
+After `load_dotenv()`, these become available as environment variables.
+
+### Step 3: Define the Configuration Class
+
+```python
+class Config:
+```
+
+**What this does:**
+- Creates a class to organize all configuration settings
+- Provides a clean, centralized way to manage app configuration
+
+**Why use a class:**
+- Groups related configuration together
+- Makes it easy to access config values throughout your app
+- Allows for methods like validation
+- Follows the principle of "separation of concerns"
+
+### Step 4: Define Configuration Variables
+
+```python
+MONGODB_URI = os.getenv('MONGODB_URI')
+DATABASE_NAME = os.getenv('DATABASE_NAME', 'ytmanager')
+COLLECTION_NAME = os.getenv('COLLECTION_NAME', 'videos')
+```
+
+**Breaking down each line:**
+
+##### Line 1: `MONGODB_URI = os.getenv('MONGODB_URI')`
+- `os.getenv('MONGODB_URI')`: Looks for an environment variable named 'MONGODB_URI'
+- If found, returns its value
+- If not found, returns `None`
+- **No default value** because this is required for the app to work
+
+##### Line 2: `DATABASE_NAME = os.getenv('DATABASE_NAME', 'ytmanager')`
+- `os.getenv('DATABASE_NAME', 'ytmanager')`: Looks for 'DATABASE_NAME' environment variable
+- If found, uses that value
+- If not found, uses the default value `'ytmanager'`
+- **Has a default** because the app can work with a default database name
+
+##### Line 3: `COLLECTION_NAME = os.getenv('COLLECTION_NAME', 'videos')`
+- Similar to DATABASE_NAME
+- Uses 'videos' as the default collection name if not specified
+
+### Step 5: Configuration Validation Method
+
+```python
+@classmethod
+def validate_config(cls):
+    """Validate that required configuration is present"""
+    if not cls.MONGODB_URI:
+        raise ValueError("MONGODB_URI environment variable is required")
+    return True
+```
+
+**Breaking this down:**
+
+### `@classmethod` decorator:
+- Makes this a class method (can be called on the class itself)
+- `cls` refers to the class (Config), not an instance
+- Can be called as `Config.validate_config()` without creating an object
+
+### The validation logic:
+```python
+if not cls.MONGODB_URI:
+    raise ValueError("MONGODB_URI environment variable is required")
+```
+- Checks if `MONGODB_URI` is empty, None, or missing
+- If it's missing, raises a `ValueError` with a descriptive message
+- This prevents the app from starting with invalid configuration
+
+#### Return statement:
+```python
+return True
+```
+- Returns `True` if all validations pass
+- Allows calling code to know validation succeeded
+
+### How This All Works Together
+
+#### 1. When the config.py file is imported:
+```python
+from config import Config
+```
+
+#### 2. The loading process happens automatically:
+- `load_dotenv()` runs immediately
+- Environment variables are loaded from `.env` file
+- Class variables are set with values from environment
+
+#### 3. In your main application:
+```python
+# Validate before using
+Config.validate_config()
+
+# Use the configuration
+client = MongoClient(Config.MONGODB_URI)
+db = client[Config.DATABASE_NAME]
+collection = db[Config.COLLECTION_NAME]
+```
+
+### Example Usage Scenarios
+
+#### Scenario 1: Complete .env file
+```env
+MONGODB_URI=mongodb+srv://user:pass@cluster.net/
+DATABASE_NAME=myapp
+COLLECTION_NAME=mycollection
+```
+
+**Result:**
+- `Config.MONGODB_URI` = "mongodb+srv://user:pass@cluster.net/"
+- `Config.DATABASE_NAME` = "myapp"
+- `Config.COLLECTION_NAME` = "mycollection"
+
+#### Scenario 2: Minimal .env file
+```env
+MONGODB_URI=mongodb+srv://user:pass@cluster.net/
+```
+
+**Result:**
+- `Config.MONGODB_URI` = "mongodb+srv://user:pass@cluster.net/"
+- `Config.DATABASE_NAME` = "ytmanager" (default)
+- `Config.COLLECTION_NAME` = "videos" (default)
+
+#### Scenario 3: Missing MONGODB_URI
+```env
+DATABASE_NAME=myapp
+```
+
+**Result:**
+- `Config.validate_config()` raises: `ValueError: MONGODB_URI environment variable is required`
+- App won't start, preventing connection errors
+
+### Benefits of This Approach
+
+1. **Security**: Sensitive data stays in environment variables
+2. **Flexibility**: Easy to change config without modifying code
+3. **Error Prevention**: Validation catches missing required config early
+4. **Defaults**: Sensible defaults for non-critical settings
+5. **Organization**: All configuration in one place
+6. **Environment-specific**: Different configs for dev/staging/production
+
+```python
+class Config:
+    # Database settings
+    MONGODB_URI = os.getenv('MONGODB_URI')
+    DATABASE_NAME = os.getenv('DATABASE_NAME', 'ytmanager')
+    
+    # App settings
+    DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
+    LOG_LEVEL = os.getenv('LOG_LEVEL', 'INFO')
+    
+    # Connection settings
+    CONNECTION_TIMEOUT = int(os.getenv('CONNECTION_TIMEOUT', '5000'))
+    
+    @classmethod
+    def validate_config(cls):
+        required_vars = ['MONGODB_URI']
+        missing_vars = [var for var in required_vars if not getattr(cls, var)]
+        
+        if missing_vars:
+            raise ValueError(f"Missing required environment variables: {', '.join(missing_vars)}")
+        return True
+```
+
+- Above configuration pattern is widely used in professional applications because it provides a clean separation between code and configuration, making applications more secure and maintainable.
