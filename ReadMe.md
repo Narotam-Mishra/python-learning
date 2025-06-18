@@ -1540,3 +1540,159 @@ for num, task in enumerate(tasks, 1):
 - Use `with` for safer file handling (auto-closes files).  
 - Handle errors with `try-except` for robustness.  
 - Specify modes (`r`, `w`, `a`) based on use case.  
+
+## Python Project - Youtube manager app (00:00:00)
+
+- A simple command-line application to manage your YouTube video collection. This Python program allows you to store, view, update, and delete YouTube video information locally.
+
+### Features
+
+- **List Videos**: View all stored YouTube videos with their names and durations
+- **Add Videos**: Add new YouTube videos to your collection
+- **Update Videos**: Modify existing video details
+- **Delete Videos**: Remove videos from your collection
+- **Persistent Storage**: All data is saved to a local JSON file
+
+### Installation
+
+1. Download the Python script
+2. Save it as `youtube_manager.py` (or any name you prefer)
+3. Ensure you have Python 3.10+ installed on your system
+
+### Usage
+
+#### Running the Application
+
+```bash
+python youtube_manager.py
+```
+
+### Menu Options
+
+When you run the application, you'll see a menu with 5 options:
+
+```
+Youtube Manager | choose an option
+1. List all youtube videos
+2. Add youtube video
+3. Update youtube video detail
+4. Delete a youtube video
+5. Exit the app
+```
+
+### Detailed Steps
+
+#### 1. List All YouTube Videos
+- Select option `1`
+- Displays all stored videos in a numbered list
+- Shows video name and duration for each entry
+- If no videos are stored, the list will be empty
+
+#### 2. Add YouTube Video
+- Select option `2`
+- Enter the video name when prompted
+- Enter the video duration when prompted
+- The video is automatically saved to the data file
+
+**Example:**
+```
+Enter video name: Python Tutorial for Beginners
+Enter video time: 45:30
+```
+
+#### 3. Update YouTube Video Detail
+- Select option `3`
+- View the current list of videos with their numbers
+- Enter the number of the video you want to update
+- Provide new video name and duration
+- Changes are automatically saved
+
+**Example:**
+```
+Enter the video number to update: 2
+Enter the new video name: Advanced Python Programming
+Enter the new video time: 1:20:15
+```
+
+#### 4. Delete a YouTube Video
+- Select option `4`
+- View the current list of videos with their numbers
+- Enter the number of the video you want to delete
+- The video is permanently removed from your collection
+
+**Example:**
+```
+Enter the video number to be deleted: 3
+```
+
+#### 5. Exit the App
+- Select option `5`
+- Closes the application
+- All your data remains saved in the `youtube.txt` file
+
+## Data Storage
+
+- All video data is stored in a file called `youtube.txt`
+- The file uses JSON format for data storage
+- The file is created automatically when you first add a video
+- Data persists between application runs
+
+### Data Structure
+Each video is stored as a JSON object with the following structure:
+```json
+{
+    "name": "Video Title",
+    "time": "Duration"
+}
+```
+
+### Error Handling
+
+- The application includes error handling for common scenarios:
+
+- **File Not Found**: If `youtube.txt` doesn't exist, the app starts with an empty video list
+- **Invalid Index**: When updating or deleting, invalid video numbers are rejected
+- **Invalid Menu Choice**: Unrecognized menu options display an error message
+
+### Example Session
+
+```
+Youtube Manager | choose an option
+1. List all youtube videos
+2. Add youtube video
+3. Update youtube video detail
+4. Delete a youtube video
+5. Exit the app
+Enter your choice: 2
+
+Enter video name: Learn Python in 30 Minutes
+Enter video time: 30:00
+
+Youtube Manager | choose an option
+1. List all youtube videos
+2. Add youtube video
+3. Update youtube video detail
+4. Delete a youtube video
+5. Exit the app
+Enter your choice: 1
+
+************************************************************
+1. Video Name: Learn Python in 30 Minutes, Duration: 30:00
+
+************************************************************
+```
+
+### File Structure
+
+```
+your-project-folder/
+├── youtube_manager.py    # Main application file
+└── youtube.txt          # Data storage file (created automatically)
+```
+
+### Notes
+
+- The application uses a simple text-based interface
+- Video duration can be entered in any format (e.g., "30:00", "1:20:15", "45 minutes")
+- All operations immediately save changes to the data file
+- The application will continue running until you select option 5 to exit
