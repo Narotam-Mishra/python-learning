@@ -2041,3 +2041,76 @@ class Config:
 ```
 
 - Above configuration pattern is widely used in professional applications because it provides a clean separation between code and configuration, making applications more secure and maintainable.
+
+## Python Virtual environment guide (02:51:36)
+
+### **Virtual Environments in Python**  
+1. **Purpose**:  
+   - Isolate project dependencies to avoid conflicts between different projects.  
+   - Create a fresh Python environment with its own installed packages.  
+
+2. **Tool**: **`virtualenv`**  
+   - Install via:  
+     ```bash
+     pip install virtualenv
+     ```  
+   - Create a virtual environment:  
+     ```bash
+     python3 -m virtualenv .venv
+     ```  
+     (Replace `.venv` with your preferred environment name, often `.venv` or `venv`).  
+
+3. **Activation**:  
+   - **Linux/Mac**:  
+     ```bash
+     source .venv/bin/activate
+     ```  
+   - **Windows**:  
+     ```cmd
+     .venv\Scripts\activate
+     ```  
+   - Once activated, the terminal prompt shows `(.venv)`, indicating the virtual environment is active.  
+
+4. **Usage**:  
+   - Install packages (e.g., Django, PyMongo) only in the virtual environment:  
+     ```bash
+     pip install django pymongo
+     ```  
+   - List installed packages:  
+     ```bash
+     pip list
+     ```  
+   - Export dependencies to `requirements.txt`:  
+     ```bash
+     pip freeze > requirements.txt
+     ```  
+   - Install from `requirements.txt`:  
+     ```bash
+     pip install -r requirements.txt
+     ```  
+
+5. **Deactivation**:  
+   - Exit the virtual environment:  
+     ```bash
+     deactivate
+     ```  
+
+### **Key Points**  
+- Virtual environments prevent global Python package pollution.  
+- Use `requirements.txt` for replicating environments across systems.  
+- Always activate the environment before working on the project.  
+
+- This workflow is essential for Python development, especially when managing multiple projects with differing dependencies. 🚀
+
+### Some Useful commands
+- command to create virtual environment on window :- `python -m venv .venv` where `.venv` is the name of the virtual environment directory
+
+- command to activate virtual environment (window) :- `.\.venv\Scripts\activate` where `.venv` is the name of virtual environment
+
+- command to generate `requirement.txt` file (which contains all dependencies) :- `pip list > requirement.txt`
+
+- command to list all dependencies :- `pip list`
+
+- command to deactivate virtual environment - `deactivate`
+
+### [virtualenv doc](https://virtualenv.pypa.io/en/latest/user_guide.html)
