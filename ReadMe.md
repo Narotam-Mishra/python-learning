@@ -1829,3 +1829,10 @@ The SQLite database file (`youtube_videos.db`) is created in the same directory 
 - A **Cursor** object represents a database cursor which is used to execute SQL statements, and manage the context of a fetch operation.
 
 - A **database cursor** is a mechanism that enables traversal over the records in a database. Cursors facilitate processing in conjunction with the traversal, such as retrieval, addition and removal of database records.
+
+## Handling API in python (01:40:22)
+
+- [FreeAPI](https://api.freeapi.app/)
+
+- [Requests - Python HTTP Library](https://pypi.org/project/requests/)
+
