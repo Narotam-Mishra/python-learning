@@ -1696,3 +1696,136 @@ your-project-folder/
 - Video duration can be entered in any format (e.g., "30:00", "1:20:15", "45 minutes")
 - All operations immediately save changes to the data file
 - The application will continue running until you select option 5 to exit
+
+## Python project - Youtube manager with sqlite3 (01:07:32)
+
+## YouTube Video Manager
+
+- A simple command-line application for managing YouTube video information using SQLite database. This application allows you to store, retrieve, update, and delete video records with their names and durations.
+
+### Features
+
+- **Add Videos**: Store video name and duration in the database
+- **List Videos**: Display all stored videos with their details
+- **Update Videos**: Modify existing video information
+- **Delete Videos**: Remove videos from the database
+- **Persistent Storage**: Uses SQLite database for data persistence
+
+### Prerequisites
+
+- Python 3.x
+- SQLite3 (included with Python standard library)
+
+### File Structure
+
+```
+youtube-video-manager/
+│
+├── youtube_manager.py    # Main application file
+├── README.md            # Documentation
+└── youtube_videos.db    # SQLite database (created automatically)
+```
+
+### Usage
+
+#### Running the Application
+
+```bash
+python youtube_manager.py
+```
+
+### Menu Options
+
+The application provides an interactive menu with the following options:
+
+#### 1. List Videos
+- Displays all videos stored in the database
+- Shows video ID, name, and duration
+- If no videos exist, displays appropriate message
+
+#### 2. Add Video
+- Prompts for video name and duration
+- Stores the information in the database
+- Validates that both fields are provided
+
+#### 3. Update Video
+- Requires video ID to identify the record
+- Prompts for new video name and duration
+- Updates the existing record if ID is found
+- Validates input and checks if video exists
+
+#### 4. Delete Video
+- Requires video ID to identify the record
+- Asks for confirmation before deletion
+- Removes the record from database if confirmed
+- Validates input and checks if video exists
+
+#### 5. Exit App
+- Closes the database connection
+- Terminates the application
+
+### Database Schema
+
+The application uses a SQLite database with the following table structure:
+
+```sql
+CREATE TABLE videos_data (
+    id INTEGER PRIMARY KEY,      -- Auto-increment unique identifier
+    name TEXT NOT NULL,          -- Video name/title
+    time TEXT NOT NULL          -- Video duration
+);
+```
+
+### Example Usage
+
+```
+Welcome to YouTube Video Manager!
+
+========================================
+YouTube Manager App with Database
+========================================
+1. List Videos
+2. Add Video
+3. Update Video
+4. Delete Video
+5. Exit App
+----------------------------------------
+Enter your choice (1-5): 2
+
+--- Add New Video ---
+Enter the video name: Python Tutorial for Beginners
+Enter the video duration (e.g., 10:30): 25:45
+Video 'Python Tutorial for Beginners' added successfully!
+```
+
+### Error Handling
+
+- Displays helpful error messages for invalid inputs
+- Checks for video existence before operations
+- Handles empty database scenarios gracefully
+- Provides clear feedback for all operations
+
+### Key Functions
+
+| Function | Purpose |
+|----------|---------|
+| `list_videos()` | Retrieve and display all videos |
+| `add_video(name, time)` | Add new video to database |
+| `update_video(video_id, new_name, new_time)` | Update existing video |
+| `delete_video(video_id)` | Remove video from database |
+| `main()` | Main program loop and user interface |
+
+### Database Operations
+- Uses parameterized queries to prevent SQL injection
+- Implements proper transaction handling with `commit()`
+- Closes database connection on application exit
+
+### Database File Location
+
+The SQLite database file (`youtube_videos.db`) is created in the same directory as the Python script.
+
+- [sqlite3](https://docs.python.org/3/library/sqlite3.html)
+
+- A **Cursor** object represents a database cursor which is used to execute SQL statements, and manage the context of a fetch operation.
+
+- A **database cursor** is a mechanism that enables traversal over the records in a database. Cursors facilitate processing in conjunction with the traversal, such as retrieval, addition and removal of database records.
