@@ -2114,3 +2114,28 @@ class Config:
 - command to deactivate virtual environment - `deactivate`
 
 ### [virtualenv doc](https://virtualenv.pypa.io/en/latest/user_guide.html)
+
+## Explore Open source code of python (03:09:54)
+
+1. **Exploring Python’s Source Code**  
+   - Python’s source code is written mostly in **C** (visible in the `Python` GitHub repo under folders like `PC/`, `Mac/`, `Modules/`).  
+   - Key modules (e.g., `math`, `array`, `json`) are implemented in C for performance.  
+   - Understanding the source helps in debugging and contributing effectively.  
+
+2. **Python Internals**  
+   - Python treats everything as **objects** (e.g., iterators, memory management).  
+   - Concepts like **iterators**, **memory optimization**, and **data structures** are rooted in the CPython implementation.  
+   - Developers are encouraged to explore the source to understand core functionalities (e.g., how `math.ceil()` or JSON encoding works).  
+
+3. **Setting Up for Development**  
+   - To contribute, set up the Python development environment (requires C/C++ tools).  
+   - Follow the **Developer Guide** in the Python repo for building from source.  
+   - Testing and validating fixes is crucial before submitting pull requests.  
+
+### [cpython](https://github.com/python/cpython)
+
+### [Python Developer’s Guide](https://devguide.python.org/)
+
+## Conda and jupyter notebook in python (03:23:44)
+
+#### start from (3:11:18)
