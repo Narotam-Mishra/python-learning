@@ -2136,6 +2136,4 @@ class Config:
 
 ### [Python Developer’s Guide](https://devguide.python.org/)
 
-## Conda and jupyter notebook in python (03:23:44)
 
-#### start from (3:11:18)
